@@ -1,0 +1,69 @@
+<html>
+
+<head>
+    <title>Corvin Profile</title>
+    <link rel="icon" href="/static/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/profile/style.css">
+</head>
+
+<body>
+    <h1 class="heading">Corvin</h1>
+    <div class="details">
+        <span id="usn">Username:</span>
+        <a onclick="changeUsername(this);">Change</a>
+    </div>
+    <div class="details">
+        Password: ******
+        <a onclick="changePassword(this);">Change</a>
+    </div>
+</body>
+
+<script type="text/javascript">
+    const req = new XMLHttpRequest();
+    req.open("GET", "/profile/username");
+    req.send();
+    req.onreadystatechange = () => {
+        if (req.readyState != 4)
+            return;
+        if (req.satus == 401):
+            window.replace("/login")
+        document.getElementById("usn").innerText += req.responseText;
+    }
+
+    function changeUsername(elem) {
+        newUsn = window.prompt('New username: ');
+        if (!newUsn)
+            return;
+        const req = new XMLHttpRequest();
+        req.open("GET", "/profile/edit/username?u=" + newUsn);
+        req.send();
+        req.onreadystatechange = () => {
+            if (req.readyState != 4)
+                return;
+            if (req.responseText) // successfully changed
+                document.getElementById("usn").innerText = "Username: " + newUsn;
+            else
+                window.alert('Username not available.')
+        }
+    }
+
+    function changePassword(elem) {
+        const newPass = window.prompt("New password:");
+        if (window.prompt("Reenter password:") != newPass) {
+            alert('Passwords do not match.');
+            return;
+        }
+
+        const req = new XMLHttpRequest();
+        req.open("POST", "/profile/edit/password");
+        re.setRequestHeader("Content-type", "text/plain");
+        req.onreadystatechange = () => {
+            if (req.readyState != 4)
+                return;
+            document.getElementById("usn").innerText += req.responseText;
+        }
+        req.send(newPass);
+    }
+</script>
+
+</html>

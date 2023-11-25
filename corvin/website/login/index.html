@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <title>Corvin Login</title>
+    <link rel="icon" href="/static/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/login/style.css">
+</head>
+
+<body>
+    <div>
+        <h1>Corvin</h1>
+
+        <form action="/chat" method="post">
+            <input type="text" name="usn" autofocus placeholder="Username" required><br>
+            <input type="password" name="pwd" placeholder="Password" required><br>
+
+            <span class="invalidCredentials" hidden><br></span>
+
+            <input type="submit" value="Log In">
+        </form><br>
+
+        <script type="text/javascript">
+            const det = new URLSearchParams(location.search).get('ic');
+            const elem = document.getElementsByClassName("invalidCredentials")[0];
+            elem["hidden"] = false;
+            if (det == 'u')
+                elem.innerHTML = 'User not found. Make sure you typed correctly.<br>';
+            else if (det == 'p')
+                elem.innerHTML = 'Incorrect password!! Make sure you typed correctly.<br>';
+            else if (det == 'ba')
+                elem.innerHTML = 'Invalid authtoken.<br>';
+            else if (det == 'na')
+                elem.innerHTML = 'No authtoken sent.<br>';
+        </script>
+
+        <a href="/login/forgot_password.html" id="forgotPassword">Forgot Password?</a>
+        <p id="signUp">Don't have an account? <a href="/login/sign_up.html">Sign Up</a>.</p>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>Corvin Sign Up</title>
+    <link rel="icon" href="/static/favicon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <h1>Corvin</h1>
+        <form action="signup" method="post">
+            <input type="text" name="usn" autofocus placeholder="Username" required><br>
+            <input type="password" name="pwd" id="pwd" placeholder="Password" required><br>
+            <input type="password" id="retype" placeholder="Retype Password" required><br>
+
+
+            <p style="font-size:14px; color: red;" hidden>The passwords do not match!</p>
+            <span class="invalidCredentials" hidden><br></span>
+
+            <input type="submit" value="Sign Up">
+        </form><br>
+
+        <script type="text/javascript">
+            const det = new URLSearchParams(location.search).get('ic');
+            const elem = document.getElementsByClassName("invalidCredentials")[0];
+            elem["hidden"] = false;
+            if (det == 'u')
+                elem.innerText = 'Username already exists.';
+        </script>
+
+    </div>
+</body>
+<script type="text/javascript">
+    document.getElementsByTagName("form")[0].onsubmit = function() {
+        retype = document.getElementById("retype");
+        if ((document.getElementById("pwd").value == retype.value) && (retype.value != '')) {
+            retype.remove();
+            return true;
+        } else {
+            document.getElementsByTagName("p")[0]['hidden'] = false;
+            return false;
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,26 @@
+body {
+    font-family: Exo;
+    font-size: 26px;
+    background-color: #121212;
+    color: white;
+    position: relative;
+}
+
+p {
+    color: LightGrey;
+    font-family: Philosopher;
+    font-size: 16px;
+}
+
+a {
+    color: LightGrey;
+}
+
+@font-face {
+    font-family: Exo;
+    src: url("/static/Exo-Thin.ttf");
+}
+@font-face {
+    font-family: Philosopher;
+    src: url("/static/Philosopher-Regular.ttf");
+}

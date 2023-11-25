@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <title>Corvin</title>
+    <link rel="icon" href="/static/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/chat/style.css">
+</head>
+
+<body>
+
+    <div class="userList">
+        <div class="userlistHeader">
+            <span class="newChat" onclick="newChat()">New Chat</span>
+            <a href="/profile"><img src="/static/user.png" class="userIcon"></a>
+        </div>
+        <!-- New chats go here -->
+    </div>
+
+    <div class="chatWin">
+        <div class="messages"></div>
+        <div class="msgBoxDiv">
+            <textarea rows=2 class="msgBox" maxlength="2048" placeholder="Enter message ..." accesskey="m" disabled></textarea>
+            <br/><button class="sendrBtn" onclick="send(this.value);" accesskey="s">Send</button>
+            <div class="loader"></div>
+        </div>
+
+    </div>
+</body>
+
+<script src="/chat/script.js"></script>
+
+</html>

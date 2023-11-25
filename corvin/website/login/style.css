@@ -1,0 +1,65 @@
+body {
+    font-family: Exo;
+    font-size: 26px;
+    background-color: #121212;
+    color: white;
+    position: relative;
+}
+
+div {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -195px 0 0 -260px; 
+}
+
+.invalidCredentials {
+    color: Red;
+    font-family: Philosopher;
+    font-size: 16px;
+}
+
+#forgotPassword {
+    font-family: Arial;
+    font-size: 16px;
+    color: LightSlateGrey;
+    text-decoration: none;
+}
+
+p {
+    color: LightGrey;
+    font-family: Philosopher;
+    font-size: 16px;
+}
+
+a {
+    color: LightGrey;
+}
+
+input {
+    background-color: #121212;
+    color: white;
+    width: 500px;
+    margin: 10px;
+    padding: 7px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: "Courier New";
+}
+
+input[type=submit] {
+    font-family: Philosopher;
+    background-color: LightSeaGreen;
+    width: 150px;
+    padding: 8px 0;
+}
+
+@font-face {
+    font-family: Exo;
+    src: url("/static/Exo-Thin.ttf");
+}
+@font-face {
+    font-family: Philosopher;
+    src: url("/static/Philosopher-Regular.ttf");
+}
